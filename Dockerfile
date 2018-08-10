@@ -10,9 +10,8 @@ RUN apt-get update
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 RUN apt-get install -y oracle-java8-installer
 # 下载并解压hadoop3.1.1
-RUN mkdir /usr/hadoop
-RUN wget -P /usr/hadoop http://www.trieuvan.com/apache/hadoop/common/hadoop-3.1.1/hadoop-3.1.1.tar.gz
-RUN tar -xzf /usr/hadoop/hadoop-3.1.1.tar.gz -C /usr/hadoop
-RUN rm /usr/hadoop/hadoop-3.1.1.tar.gz
+RUN wget -P /usr/lib http://www.trieuvan.com/apache/hadoop/common/hadoop-3.1.1/hadoop-3.1.1.tar.gz
+RUN tar -xzf /usr/lib/hadoop-3.1.1.tar.gz -C /usr/lib
+RUN rm /usr/lib/hadoop-3.1.1.tar.gz
 # 删除所有更新的软件
 RUN apt-get clean all

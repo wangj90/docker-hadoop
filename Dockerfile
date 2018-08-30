@@ -27,6 +27,11 @@ RUN apt-get update && \
 	sed -i "s|`cat /etc/ssh/ssh_config | grep StrictHostKeyChecking`|StrictHostKeyChecking no|g" /etc/ssh/ssh_config && \
 	chmod 600 ~/.ssh/authorized_keys
 
+# 配置JAVA、HADOOP环境变量
+ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+ENV HADOOP_HOME /usr/lib/hadoop/hadoop-3.1.1
+ENV PATH $JAVA_HOME/bin:$HADOOP_HOME/bin:$PATH
+
 # 配置中文语言包的环境变量
 ENV LANG zh_CN.UTF-8
 ENV LC_ALL zh_CN.UTF-8
